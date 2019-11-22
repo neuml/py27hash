@@ -1,6 +1,7 @@
+# pylint: disable = C0111,W0622,E0401
+
 import unittest
 
-# pylint: disable = E0401
 from py27hash.hash import hash27 as hash
 
 class TestHash(unittest.TestCase):

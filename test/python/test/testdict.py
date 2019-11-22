@@ -1,7 +1,8 @@
+# pylint: disable = C0111,W0622,E0401
+
 import os
 import unittest
 
-# pylint: disable = E0401
 from py27hash.dict import Dict as dict
 from py27hash.hash import hash27 as hash
 
@@ -21,7 +22,7 @@ class TestDict(unittest.TestCase):
         d = dict()
 
         for x in range(60000):
-            d[str(x)] = x 
+            d[str(x)] = x
 
         # Test key and value
         self.assertEqual(hash("".join(d)), -35326655653467556)
