@@ -1,5 +1,5 @@
 # pylint: disable = C0111
-from distutils.core import setup
+from setuptools import setup
 
 setup(name="py27hash",
       version="1.0.0",
