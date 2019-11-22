@@ -52,3 +52,25 @@ class TestDict(unittest.TestCase):
 
         self.assertEqual(hash("".join(m)), -5846033856052761336)
         self.assertEqual(hash("".join([str(x) for x in m.values()])), -5846033856052761336)
+
+    def test_update(self):
+        d = dict()
+
+        for x in range(500):
+            d[str(x)] = x
+
+        d["255"] = "abc"
+        d["100"] = "123"
+
+        self.assertEqual(hash("".join(d)), -7925872281736336380)
+
+    def test_delete(self):
+        d = dict()
+
+        for x in range(500):
+            d[str(x)] = x
+
+        del d["53"]
+        del d["155"]
+
+        self.assertEqual(hash("".join(d)), -8652364590473687932)

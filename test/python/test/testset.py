@@ -23,8 +23,6 @@ class TestSet(unittest.TestCase):
 
         self.assertEqual(hash("".join(d)), -35326655653467556)
 
-    # Test deletes, non-string keys, replace/update keys, iterators
-
     def test_values(self):
         d = set()
         d.add(("abc", 1))
@@ -49,3 +47,14 @@ class TestSet(unittest.TestCase):
         m.update(e)
 
         self.assertEqual(hash("".join(m)), -5846033856052761336)
+
+    def test_delete(self):
+        d = set()
+
+        for x in range(500):
+            d.add(str(x))
+
+        d.remove("53")
+        d.remove("155")
+
+        self.assertEqual(hash("".join(d)), -8652364590473687932)
