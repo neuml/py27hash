@@ -48,8 +48,8 @@ d.add("a")
 The same example above can be changed to override the dict and set import statement. This will globally change an entire file which could cause issues but it is an option. If a dict or set was created with the {} syntax, it still needs to be changed to dict()/set().
 
 ```python
-from py27.dict import Dict as dict
-from py27.set import Set as set
+from py27hash.dict import Dict as dict
+from py27hash.set import Set as set
 
 d = dict()
 
