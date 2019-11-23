@@ -49,15 +49,13 @@ The same example above can be changed to override the dict and set import statem
 
 ```python
 from py27hash.dict import Dict as dict
-from py27hash.set import Set as set
 
 d = dict()
 
 d["a"] = 1
 
 # Python 2.7 style sets can be used in the same manner.
-
-from py27hash.set import Set
+from py27hash.set import Set as set
 
 d = set()
 
@@ -69,11 +67,11 @@ d.add("a")
 The hashing and key iteration methods can be directly accessed via the hash and key packages as follows.
 
 ```python
-from py27hash.hash import Hash
+from py27hash.hash import hash27
 
-print(Hash.hash("test1234"))
+print(hash27("test1234"))
 
-#As with the example above you could even override the hash function for a particular file.
+# As with the example above you could even override the hash function for a particular file.
 
 from p27hash.hash import hash27 as hash
 

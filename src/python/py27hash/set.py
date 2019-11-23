@@ -54,6 +54,16 @@ class Set(set):
         # Remove key
         self.keylist.remove(value)
 
+    def discard(self, value):
+        """
+        Discards a value from the set.
+
+        Args:
+            value: value to remove
+        """
+
+        self.remove(value)
+
     def update(self, *args, **kwargs):
         """
         Overrides set logic to always call add item. This allows Python 2.7 style iteration.
@@ -64,7 +74,7 @@ class Set(set):
         """
 
         for arg in args:
-            # Cast to dict if applicable. Otherwise, assume it's an iterable of (key, value) pairs.
+            # Cast to set if applicable. Otherwise, assume it's an iterable of (key, value) pairs.
             if isinstance(arg, set):
                 # Merge incoming keys into keylist
                 self.keylist.merge(arg)
@@ -74,6 +84,49 @@ class Set(set):
 
         for k in list(**kwargs):
             self.add(k)
+
+    def clear(self):
+        """
+        Clears the set along with it's backing Python 2.7 keylist.
+        """
+
+        super(Set, self).clear()
+        self.keylist = Keys()
+
+    def copy(self):
+        """
+        Copies the set along with it's backing Python 2.7 keylist.
+
+        Returns:
+            copy of self
+        """
+
+        new = Set()
+
+        # First copy the keylist to the new object
+        new.keylist = self.keylist.copy()
+
+        # Copy keys into backing set
+        for v in self:
+            new.add(v)
+
+        return new
+
+    def pop(self):
+        """
+        Pops an element from the set and returns the item.
+
+        Returns:
+            value if found or None if set is empty
+        """
+
+        if self:
+            value = self.keylist.pop()
+            self.remove(value)
+
+            return value
+
+        return None
 
     def __iter__(self):
         """

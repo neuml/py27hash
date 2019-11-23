@@ -85,6 +85,69 @@ class Dict(dict):
         for k, v in dict(**kwargs).items():
             self[k] = v
 
+    def clear(self):
+        """
+        Clears the dict along with it's backing Python 2.7 keylist.
+        """
+
+        super(Dict, self).clear()
+
+        self.keylist = Keys()
+
+    def copy(self):
+        """
+        Copies the dict along with it's backing Python 2.7 keylist.
+
+        Returns:
+            copy of self
+        """
+
+        new = Dict()
+
+        # First copy the keylist to the new object
+        new.keylist = self.keylist.copy()
+
+        # Copy keys into backing dict
+        for (k, v) in self.items():
+            new[k] = v
+
+        return new
+
+    def pop(self, key, default=None):
+        """
+        Pops the value at key from the dict if it exists, returns default otherwise.
+
+        Args:
+            key: key to remove
+            default: value to return if key is not found
+
+        Returns:
+            value of key if found or default
+        """
+
+        value = super(Dict, self).pop(key, default)
+        self.keylist.remove(key)
+
+        return value
+
+    def popitem(self):
+        """
+        Pops an element from the dict and returns the item.
+
+        Returns:
+            (key, value) of an element if found or None if dict is empty
+        """
+
+        if self:
+            key = self.keylist.pop()
+            value = self[key] if key else None
+
+            del self[key]
+
+            return (key, value)
+
+        return None
+
     def __iter__(self):
         """
         Default iterator.

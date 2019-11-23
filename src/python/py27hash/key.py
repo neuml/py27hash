@@ -34,6 +34,23 @@ class Keys(object):
         # Python 2 dict default size
         self.mask = Keys.MINSIZE - 1
 
+    def __setstate__(self, state):
+        """
+        Overrides default pickling object to force re-adding all keys and match Python 2.7 deserialization logic.
+
+        Args:
+            state: input state
+        """
+
+        self.__dict__ = state
+        keys = self.keys()
+
+        # Clear keys and re-add to match deserialization logic
+        self.__init__()
+
+        for k in keys:
+            self.add(k)
+
     def __iter__(self):
         """
         Default iterator.
@@ -118,7 +135,11 @@ class Keys(object):
         """
 
         if key in self.keylist:
+            # Remove key from list
             self.keylist.remove(key)
+
+            # Clear cached keys
+            self.keysort = None
 
     def merge(self, d):
         """
@@ -136,6 +157,40 @@ class Keys(object):
         # Copy actual keys
         for k in d:
             self.add(k)
+
+    def copy(self):
+        """
+        Makes a copy of self.
+
+        Method: PyObject *PyDict_Copy(PyObject *o)
+
+        Returns:
+            copy of self
+        """
+
+        # Copy creates a new object and merges keys in
+        new = Keys()
+        new.merge(self.keys())
+
+        return new
+
+    def pop(self):
+        """
+        Pops the top element from the sorted keys if it exists. Returns None otherwise.
+
+        Method: static PyObject *dict_popitem(PyDictObject *mp)
+
+        Return:
+            top element or None if Keys is empty
+        """
+
+        if self.keylist:
+            # Pop the top element
+            value = self.keys()[0]
+            self.remove(value)
+            return value
+
+        return None
 
     def setMask(self, request=None):
         """
