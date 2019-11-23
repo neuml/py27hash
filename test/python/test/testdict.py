@@ -1,6 +1,7 @@
 # pylint: disable = C0111,W0622,E0401
 
 import os
+import pickle
 import unittest
 
 from py27hash.dict import Dict as dict
@@ -75,3 +76,17 @@ class TestDict(unittest.TestCase):
         del d["155"]
 
         self.assertEqual(hash("".join(d)), -8652364590473687932)
+
+    def test_pickle(self):
+        d = dict()
+
+        for x in range(500):
+            d[str(x)] = x
+
+        del d["300"]
+
+        # Pickle and reload object
+        data = pickle.dumps(d)
+        d = pickle.loads(data)
+
+        self.assertEqual(hash("".join(d)), -3717600429202393594)

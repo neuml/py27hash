@@ -96,7 +96,7 @@ class Set(set):
         string = "set(["
 
         for x, k in enumerate(self):
-            string = ", " if x > 0 else ""
+            string += ", " if x > 0 else ""
             string += "'%s'" % (k)
 
         string += "])"

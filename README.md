@@ -13,9 +13,9 @@ This package implements logic in cpython 2.7 C source, mainly the Objects/ folde
 # Installation
 You can use Git to clone the repository from GitHub and install it manually:
 
-    git clone <url>
+    git clone https://github.com/davidmezzetti/py27hash.git
     cd py27hash
-    python setup.py install
+    pip install .
 
 Python 2.7, 3.5, 3.6, 3.7, & 3.8 are supported.
 
@@ -93,7 +93,7 @@ keys.add("2")
 # Development
 If an issue is found in this library, it can be cloned and changed.
 
-    git clone <url>
+    git clone https://github.com/davidmezzetti/py27hash.git
     cd py27hash
 
 After changes are made to the source, unit tests should also be added and run via:

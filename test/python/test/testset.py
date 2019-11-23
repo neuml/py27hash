@@ -1,5 +1,6 @@
 # pylint: disable = C0111,W0622,E0401
 
+import pickle
 import os
 import unittest
 
@@ -59,3 +60,17 @@ class TestSet(unittest.TestCase):
         d.remove("155")
 
         self.assertEqual(hash("".join(d)), -8652364590473687932)
+
+    def test_pickle(self):
+        d = set()
+
+        for x in range(500):
+            d.add(str(x))
+
+        d.remove("300")
+
+        # Pickle and reload object
+        data = pickle.dumps(d)
+        d = pickle.loads(data)
+
+        self.assertEqual(hash("".join(d)), -3717600429202393594)

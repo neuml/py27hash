@@ -29,6 +29,14 @@ class Dict(dict):
         # Initialize base arguments
         self.update(*args, **kwargs)
 
+    def __reduce__(self):
+        """
+        Method necessary to fully pickle Python 3 subclassed dict objects with attribute fields.
+        """
+
+        # pylint: disable = W0235
+        return super(Dict, self).__reduce__()
+
     def __setitem__(self, key, value):
         """
         Override of __setitem__ to track keys and simulate Python 2.7 dict.
@@ -98,7 +106,7 @@ class Dict(dict):
         string = "{"
 
         for x, k in enumerate(self):
-            string = ", " if x > 0 else ""
+            string += ", " if x > 0 else ""
             string += "'%s': %s" % (k, self[k])
 
         string += "}"
