@@ -20,7 +20,7 @@ You can use Git to clone the repository from GitHub and install it manually:
 Python 2.7, 3.5, 3.6, 3.7, & 3.8 are supported.
 
 ## How to use
-You only need to replace object instantiation to use this package. There are multiple ways to do this, with the preferred way to do it on a case by case basis.
+You only need to replace object instantiation to use this package. There are multiple ways to do this, with the best way to do it on a case by case basis.
 
 ### Replace each instantiation
 The first example replaces a single dict and set with a 2.7 dict.
