@@ -2,11 +2,11 @@ py27hash: Python 2.7 hashing and iteration in Python 3+
 ======
 
 ## About
-This package is designed to support Python 2.7 hashing and iteration in any Python version. While there are a number of Python 2/3 compatibility libraries most are designed to support the old API classes/methods. This package will ensure the exact same behavior for dictionaries and sets
+This package is designed to support Python 2.7 hashing and iteration in Python 3+. While there are a number of Python 2/3 compatibility libraries most are designed to support the old API classes/methods. This package will ensure the exact same behavior for dictionaries and sets
 
-Python 2 will reach end of life (EOL) on January 1st, 2020. This package helps ease the transition from Python 2 to 3 for a small series of use cases. If an application for some reason depended on the old hashing/sort order of these collections, this package will solve that issue and ease a transition towards Python 3. Even when setting PYTHONHASHSEED=0, the hash (and default iteration order) will still be different as the hashing algorithm changed in Python3. Python 3.6 changed the default iteration order to insertion order.
+Python 2 will reach end of life (EOL) on January 1st, 2020. This package helps ease the transition from Python 2 to 3 for applications that depended on the old hash/iteration order of sets/dicts. Even when setting PYTHONHASHSEED=0, the hash (and default iteration order) will still be different as the hashing algorithm changed in Python3. Python 3.6 changed the default iteration order to insertion order.
 
-One target use case is with machine learning. Optimization of machine learning model hyperparameters can take a very long time and if a model was built under Python 2 and feature set/dicts used the default sort order, new parameters would need to be used.
+One target use case is with machine learning. Optimization of machine learning model hyperparameters can take a very long time and if a model was built under Python 2 and feature set/dicts used the default sort order, new parameters would need to be used. This library can be used to allow a full conversion to Python 3 while fixes are made to re-optimize large model parameters.
 
 This package implements logic in cpython 2.7 C source, mainly the Objects/ folder in pure Python. Performance was not a goal of this package and it will perform worse than native collections. It should only be used when there is a clear use case to preserve Python 2.7 hashing/iteration to ease a transition to Python 3.
 
