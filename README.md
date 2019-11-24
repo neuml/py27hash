@@ -88,7 +88,7 @@ keys.add("2")
 ## Background
 Python 2 will reach end of life (EOL) on January 1st, 2020. This package helps ease the migration from Python 2 to 3 for applications that depend on the old hash/iteration order of sets/dicts. Even when setting PYTHONHASHSEED=0, the hash (and default iteration order) will still be different as the hashing algorithm changed in Python3. Python 3.6 changed the default iteration order to insertion order.
 
-One target use case is with machine learning. Optimization of machine learning model hyperparameters can take a very long time and if a model was built under Python 2 and feature set/dicts used the default sort order, new parameters would need to be used. This library can be used to allow a full conversion to Python 3 while fixes are made to re-optimize large model parameters.
+One target use case is with machine learning. Optimization of machine learning model hyperparameters can take a very long time and if a model was built under Python 2 and feature set/dicts used the default sort order, new parameters would need to be used. This library can be used to allow a full conversion to Python 3 while fixes are made to re-optimize large model parameters. There likely are other use cases, especially in the scientific/engineering space where non-random deterministic iteration in Python 2 was used to create reproducible results.
 
 This package implements logic in cpython 2.7 C source, mainly the Objects/ folder in pure Python. Performance was not a goal of this package and it will perform worse than native collections. It should only be used when there is a clear use case to preserve Python 2.7 hashing/iteration to ease a transition to Python 3.
 
