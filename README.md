@@ -11,13 +11,16 @@ One target use case is with machine learning. Optimization of machine learning m
 This package implements logic in cpython 2.7 C source, mainly the Objects/ folder in pure Python. Performance was not a goal of this package and it will perform worse than native collections. It should only be used when there is a clear use case to preserve Python 2.7 hashing/iteration to ease a transition to Python 3.
 
 ## Installation
-You can use Git to clone the repository from GitHub and install it manually:
+The easiest way to install is via pip and PyPI
+    pip install py27hash
+
+You can also use Git to clone the repository from GitHub and install it manually:
 
     git clone https://github.com/davidmezzetti/py27hash.git
     cd py27hash
     pip install .
 
-Python 2.7, 3.5, 3.6, 3.7, & 3.8 are supported.
+Python 2.7 and 3+ are supported.
 
 ## How to use
 You only need to replace object instantiation to use this package. There are multiple ways to do this, with the best way to do it on a case by case basis.
