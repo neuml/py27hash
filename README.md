@@ -12,6 +12,7 @@ This package implements logic in cpython 2.7 C source, mainly the Objects/ folde
 
 ## Installation
 The easiest way to install is via pip and PyPI
+
     pip install py27hash
 
 You can also use Git to clone the repository from GitHub and install it manually:
