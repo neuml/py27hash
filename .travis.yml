@@ -1,2 +1,3 @@
 language: python
 script: ./scripts/tests.sh skipslow
+after_success: coveralls

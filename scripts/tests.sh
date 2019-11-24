@@ -6,4 +6,4 @@ export PATH=$TEST_DIR:$PATH
 export SKIPSLOW=$1
 
 # Discover and run all tests
-python3 -m unittest discover -v -s $TEST_DIR
+coverage run -m unittest discover -v -s $TEST_DIR
