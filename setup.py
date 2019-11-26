@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     DESCRIPTION = f.read()
 
 setup(name="py27hash",
-      version="1.0.0",
+      version="1.0.1",
       author="David Mezzetti",
       description="Python 2.7 hashing and iteration in Python 3+",
       long_description=DESCRIPTION,
