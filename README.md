@@ -2,8 +2,8 @@ py27hash: Python 2.7 hashing and iteration in Python 3+
 ======
 
 [![Version](https://img.shields.io/pypi/v/py27hash.svg?style=flat)](https://pypi.org/project/py27hash/)
-[![Build Status](https://img.shields.io/travis/davidmezzetti/py27hash/master.svg?style=flat)](https://travis-ci.org/davidmezzetti/py27hash)
-[![Coverage Status](https://coveralls.io/repos/github/davidmezzetti/py27hash/badge.svg)](https://coveralls.io/github/davidmezzetti/py27hash)
+[![Build Status](https://img.shields.io/travis/neuml/py27hash/master.svg?style=flat)](https://travis-ci.org/neuml/py27hash)
+[![Coverage Status](https://coveralls.io/repos/github/neuml/py27hash/badge.svg)](https://coveralls.io/github/neuml/py27hash)
 
 This package helps ease the migration from Python 2 to 3 for applications that depend on the old hash/iteration order of sets/dicts. Even when setting PYTHONHASHSEED=0, the hash (and default iteration order) will still be different as the hashing algorithm changed in Python 3. This package allows Python 2.7 hashing and set/dict iteration.
 
@@ -14,7 +14,7 @@ The easiest way to install is via pip and PyPI
 
 You can also use Git to clone the repository from GitHub and install it manually:
 
-    git clone https://github.com/davidmezzetti/py27hash.git
+    git clone https://github.com/neuml/py27hash.git
     cd py27hash
     pip install .
 
@@ -99,7 +99,7 @@ This package implements logic in cpython 2.7 C source, mainly the Objects/ folde
 ## Development
 If an issue is found in this library, it can be cloned and changed.
 
-    git clone https://github.com/davidmezzetti/py27hash.git
+    git clone https://github.com/neuml/py27hash.git
     cd py27hash
 
 After changes are made to the source, unit tests should also be added and run via:
