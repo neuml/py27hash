@@ -2,7 +2,7 @@ py27hash: Python 2.7 hashing and iteration in Python 3+
 ======
 
 [![Version](https://img.shields.io/pypi/v/py27hash.svg?style=flat)](https://pypi.org/project/py27hash/)
-[![Build Status](https://img.shields.io/travis/neuml/py27hash/master.svg?style=flat)](https://travis-ci.org/neuml/py27hash)
+[![Build Status](https://github.com/neuml/py27hash/workflows/build/badge.svg)](https://github.com/neuml/py27hash/actions?query=workflow%3Abuild)
 [![Coverage Status](https://coveralls.io/repos/github/neuml/py27hash/badge.svg)](https://coveralls.io/github/neuml/py27hash)
 
 This package helps ease the migration from Python 2 to 3 for applications that depend on the old hash/iteration order of sets/dicts. Even when setting PYTHONHASHSEED=0, the hash (and default iteration order) will still be different as the hashing algorithm changed in Python 3. This package allows Python 2.7 hashing and set/dict iteration.
