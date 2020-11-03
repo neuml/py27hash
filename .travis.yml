@@ -1,6 +1,0 @@
-language: python
-before_install:
-  - pip install coverage
-  - pip install coveralls
-script: ./scripts/tests.sh skipslow
-after_success: coveralls
