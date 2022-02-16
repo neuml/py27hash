@@ -142,10 +142,9 @@ class Hash(object):
 
         x = Hash.ordinal(value[0]) << 7
         for c in value:
-            x = (1000003 * x) ^ Hash.ordinal(c)
+            x = ((1000003 * x) ^ Hash.ordinal(c)) & 0xffffffffffffffff
 
         x ^= length
-        x &= 0xffffffffffffffff
         if x == -1:
             x = -2
 
