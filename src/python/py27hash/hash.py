@@ -77,11 +77,13 @@ class Hash(object):
 
         x += 97531
 
+        # Convert to C type
+        x = ctypes.c_long(x).value
+
         if x == -1:
             x = -2
 
-        # Convert to C type
-        return ctypes.c_long(x).value
+        return x
 
     @staticmethod
     def fhash(value):
@@ -114,11 +116,14 @@ class Hash(object):
         v = (v - float(hipart)) * 2147483648.0
 
         x = hipart + int(v) + (e << 15)
+
+        # Convert to C long type
+        x = ctypes.c_long(x).value
+
         if x == -1:
             x = -2
 
-        # Convert to C long type
-        return ctypes.c_long(x).value
+        return x
 
     @staticmethod
     def shash(value):
@@ -146,11 +151,14 @@ class Hash(object):
 
         x ^= length
         x &= 0xffffffffffffffff
+
+        # Convert to C long type
+        x = ctypes.c_long(x).value
+
         if x == -1:
             x = -2
 
-        # Convert to C long type
-        return ctypes.c_long(x).value
+        return x
 
     @staticmethod
     def ordinal(value):
@@ -165,4 +173,3 @@ class Hash(object):
         """
 
         return value if isinstance(value, int) else ord(value)
- 
