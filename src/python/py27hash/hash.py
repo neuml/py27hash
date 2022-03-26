@@ -145,12 +145,12 @@ class Hash(object):
         if length == 0:
             return 0
 
-        x = Hash.ordinal(value[0]) << 7
+        mask = 0xffffffffffffffff
+        x = (Hash.ordinal(value[0]) << 7) & mask
         for c in value:
-            x = (1000003 * x) ^ Hash.ordinal(c)
+            x = (1000003 * x) & mask ^ Hash.ordinal(c)
 
-        x ^= length
-        x &= 0xffffffffffffffff
+        x ^= length & mask
 
         # Convert to C long type
         x = ctypes.c_long(x).value
