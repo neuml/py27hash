@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
     DESCRIPTION = f.read()
 
 setup(name="py27hash",
-      version="1.0.2",
+      version="1.1.0",
       author="NeuML",
       description="Python 2.7 hashing and iteration in Python 3+",
       long_description=DESCRIPTION,
