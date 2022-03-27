@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install -U pip wheel coverage coveralls
           python --version
-          ./scripts/tests.sh skipslow
+          make coverage
 
       - name: Test Coverage
         run: coveralls --service=github
