@@ -1,7 +1,7 @@
 # pylint: disable = C0111
 from setuptools import setup
 
-with open("README.md", "r") as f:
+with open("README.md", "r", encoding="utf-8") as f:
     DESCRIPTION = f.read()
 
 setup(name="py27hash",
