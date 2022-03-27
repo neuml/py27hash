@@ -20,7 +20,7 @@ setup(
     download_url="https://pypi.org/project/py27hash/",
     license="MIT License: http://opensource.org/licenses/MIT",
     packages=find_packages(where="src/python"),
-    package_dir={"": "src/python/"},
+    package_dir={"": "src/python"},
     keywords="python hash iteration migration",
     python_requires=">=2.7",
     classifiers=[
