@@ -32,6 +32,8 @@ jobs:
           pip install .
           python --version
           make coverage
+        env:
+          SKIPSLOW:
 
       - name: Test Coverage
         run: coveralls --service=github
