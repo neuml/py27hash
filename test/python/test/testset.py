@@ -113,13 +113,13 @@ class TestSet(unittest.TestCase):
     def test_fromset(self):
         d = Set({2, 3, 4, 5, 8})
 
-        expected = 1 if is_32bit else -834114354854653831
+        expected = -522874759 if is_32bit else -834114354854653831
         self.assertEqual(hash27("".join([str(x) for x in d])), expected)
 
     def test_fromsetresize(self):
         d = Set({2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14})
 
-        expected = 1 if is_32bit else -2555609460481043374
+        expected = 1667650642 if is_32bit else -2555609460481043374
         self.assertEqual(hash27("".join([str(x) for x in d])), expected)
 
     def test_pop(self):

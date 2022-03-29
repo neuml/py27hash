@@ -141,13 +141,13 @@ class TestDict(unittest.TestCase):
     def test_fromdict(self):
         d = Dict({2: None, 3: None, 4: None, 5: None, 8: None})
 
-        expected = 1 if is_32bit else -834114354854653831
+        expected = -522874759 if is_32bit else -834114354854653831
         self.assertEqual(hash27("".join([str(x) for x in d])), expected)
 
     def test_fromdictresize(self):
         d = Dict({2: None, 3: None, 4: None, 5: None, 8: None, 9: None, 10: None, 11: None, 12: None, 13: None, 14: None})
 
-        expected = 1 if is_32bit else -2555609460481043374
+        expected = 1667650642 if is_32bit else -2555609460481043374
         self.assertEqual(hash27("".join([str(x) for x in d])), expected)
 
     def test_pop(self):
