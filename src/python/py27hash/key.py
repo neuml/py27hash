@@ -152,7 +152,8 @@ class Keys(object):
         """
 
         # PyDict_Merge initial merge size is double the size of the current + incoming dict
-        self.setMask((len(self.keylist) + len(d)) * 2)
+        if (len(self.keylist) + len(d)) * 3 >= (self.mask + 1) * 2:
+            self.setMask((len(self.keylist) + len(d)) * 2)
 
         # Copy actual keys
         for k in d:
